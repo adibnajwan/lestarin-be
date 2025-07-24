@@ -1,8 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
 
-const plantsRoutes = require("./routes/plants");
+const authRoutes = require('./routes/auth');
+const plantsRoutes = require('./routes/plants'); 
 
 const app = express();
 
@@ -12,13 +13,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/api/plants", plantsRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/plants', plantsRoutes);
 
 // Test route
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.json({
-    message: "Welcome to Lestarin API",
-    version: "1.0.0",
+    message: 'Welcome to Lestarin API',
+    version: '1.0.0',
   });
 });
 
@@ -26,9 +28,9 @@ app.get("/", (req, res) => {
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({
-    status: "error",
-    message: "Something went wrong!",
-    error: process.env.NODE_ENV === "development" ? err.message : undefined,
+    status: 'error',
+    message: 'Something went wrong!',
+    error: process.env.NODE_ENV === 'development' ? err.message : undefined,
   });
 });
 
