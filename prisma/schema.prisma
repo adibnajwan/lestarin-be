@@ -11,13 +11,15 @@ datasource db {
 
 model Plant {
   id                Int      @id @default(autoincrement())
-  name             String
-  scientificName   String
-  habitat          String   @db.Text
-  benefits         String   @db.Text
-  conservationStatus String
-  region           String
-  imageUrl         String?
+  name             String   
+  scientificName    String 
+  region           String   
+  description      String   @db.Text  
+  benefits         String[] 
+  conservationStatus String  
+  imageUrl         String? 
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
+
+  @@index([region]) 
 }
