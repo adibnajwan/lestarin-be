@@ -1,10 +1,35 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-// Get all plants
+// Get all plants with search and filtering
 const getPlants = async (req, res) => {
   try {
+    const { search, region } = req.query;
+
+    // Build where clause for filtering
+    const where = {};
+    if (search) {
+      where.OR = [
+        { name: { contains: search, mode: 'insensitive' } },
+        { scientificName: { contains: search, mode: 'insensitive' } },
+      ];
+    }
+    if (region) {
+      where.region = { equals: region, mode: 'insensitive' };
+    }
+
     const plants = await prisma.plant.findMany({
+      where,
+      select: {
+        id: true,
+        name: true,
+        scientificName: true,
+        region: true,
+        conservationStatus: true,
+        imageUrl: true,
+        description: true,
+        benefits: true,
+      },
       orderBy: {
         name: 'asc',
       },
@@ -167,10 +192,54 @@ const getRegions = async (req, res) => {
   }
 };
 
+// Get plants for dropdown selection
+const getPlantsForDropdown = async (req, res) => {
+  try {
+    const plants = await prisma.plant.findMany({
+      select: {
+        id: true,
+        name: true,
+        scientificName: true,
+        region: true,
+        imageUrl: true,
+      },
+      orderBy: {
+        name: 'asc',
+      },
+    });
+
+    // Format data untuk frontend dropdown/select
+    const formattedPlants = plants.map((plant) => ({
+      value: plant.id,
+      label: `${plant.name} (${plant.scientificName}) - ${plant.region}`,
+      imageUrl: plant.imageUrl,
+      region: plant.region,
+      details: {
+        name: plant.name,
+        scientificName: plant.scientificName,
+        region: plant.region,
+      },
+    }));
+
+    res.json({
+      status: 'success',
+      data: formattedPlants,
+    });
+  } catch (error) {
+    console.error('Error fetching plants for dropdown:', error);
+    res.status(500).json({
+      status: 'error',
+      message: 'Gagal mengambil data tanaman',
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   getPlants,
   getPlantById,
   createPlant,
   getRegions,
   getPlantsByRegion,
+  getPlantsForDropdown,
 };

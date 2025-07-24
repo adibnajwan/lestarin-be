@@ -3,7 +3,8 @@ const cors = require('cors');
 require('dotenv').config();
 
 const authRoutes = require('./routes/auth');
-const plantsRoutes = require('./routes/plants'); 
+const plantsRoutes = require('./routes/plants');
+const sightingsRoutes = require('./routes/sightings');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/plants', plantsRoutes);
+app.use('/api/sightings', sightingsRoutes);
 
 // Test route
 app.get('/', (req, res) => {
