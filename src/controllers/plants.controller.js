@@ -10,7 +10,7 @@ const getPlants = async (req, res) => {
     const plants = await prisma.plant.findMany({
       where: whereClause,
       orderBy: {
-        localName: "asc",
+        name: "asc",
       },
     });
 
@@ -63,7 +63,7 @@ const getPlantById = async (req, res) => {
 const createPlant = async (req, res) => {
   try {
     const {
-      localName,
+      name,
       scientificName,
       region,
       description,
@@ -74,7 +74,7 @@ const createPlant = async (req, res) => {
 
     const plant = await prisma.plant.create({
       data: {
-        localName,
+        name,
         scientificName,
         region,
         description,
