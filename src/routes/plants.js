@@ -6,7 +6,7 @@ const {
   createPlant,
   getRegions,
   getPlantsByRegion,
-} = require('../controllers/plants.controller');
+} = require('../controllers/plants');
 
 // Get list of all regions (for filter dropdown)
 router.get('/regions', getRegions);
