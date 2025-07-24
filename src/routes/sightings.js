@@ -17,12 +17,15 @@ const upload = multer({
   },
 });
 
+// Routes that require authentication
+router.use(authMiddleware);
+
+// Get user's sightings
+router.get('/my-sightings', getUserSightings);
+
 // Public routes untuk melihat penemuan
 router.get('/', getAllSightings);
 router.get('/:id', getSightingById);
-
-// Routes that require authentication
-router.use(authMiddleware);
 
 // Get list tanaman untuk form pelaporan
 router.get('/plants/dropdown', async (req, res) => {
