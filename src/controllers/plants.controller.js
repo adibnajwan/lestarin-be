@@ -1,28 +1,71 @@
-const { PrismaClient } = require("@prisma/client");
+const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-// Get all plants with optional region filter
+// Get all plants
 const getPlants = async (req, res) => {
   try {
-    const { region } = req.query;
-    const whereClause = region ? { region } : {};
-
     const plants = await prisma.plant.findMany({
-      where: whereClause,
       orderBy: {
-        name: "asc",
+        name: 'asc',
       },
     });
 
     res.json({
-      status: "success",
+      status: 'success',
       data: plants,
+      count: plants.length,
     });
   } catch (error) {
-    console.error("Error fetching plants:", error);
+    console.error('Error fetching plants:', error);
     res.status(500).json({
-      status: "error",
-      message: "Failed to fetch plants",
+      status: 'error',
+      message: 'Failed to fetch plants',
+      error: error.message,
+    });
+  }
+};
+
+// Get plants by region
+const getPlantsByRegion = async (req, res) => {
+  try {
+    const { region } = req.params;
+    if (!region) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'Region parameter is required',
+      });
+    }
+
+    const plants = await prisma.plant.findMany({
+      where: {
+        region: {
+          equals: region,
+          mode: 'insensitive', // Case insensitive search
+        },
+      },
+      orderBy: {
+        name: 'asc',
+      },
+    });
+
+    if (plants.length === 0) {
+      return res.status(404).json({
+        status: 'error',
+        message: `No plants found in region: ${region}`,
+      });
+    }
+
+    res.json({
+      status: 'success',
+      data: plants,
+      count: plants.length,
+      region: region,
+    });
+  } catch (error) {
+    console.error('Error fetching plants by region:', error);
+    res.status(500).json({
+      status: 'error',
+      message: 'Failed to fetch plants by region',
       error: error.message,
     });
   }
@@ -40,20 +83,20 @@ const getPlantById = async (req, res) => {
 
     if (!plant) {
       return res.status(404).json({
-        status: "error",
-        message: "Plant not found",
+        status: 'error',
+        message: 'Plant not found',
       });
     }
 
     res.json({
-      status: "success",
+      status: 'success',
       data: plant,
     });
   } catch (error) {
-    console.error("Error fetching plant:", error);
+    console.error('Error fetching plant:', error);
     res.status(500).json({
-      status: "error",
-      message: "Failed to fetch plant",
+      status: 'error',
+      message: 'Failed to fetch plant',
       error: error.message,
     });
   }
@@ -85,14 +128,14 @@ const createPlant = async (req, res) => {
     });
 
     res.status(201).json({
-      status: "success",
+      status: 'success',
       data: plant,
     });
   } catch (error) {
-    console.error("Error creating plant:", error);
+    console.error('Error creating plant:', error);
     res.status(500).json({
-      status: "error",
-      message: "Failed to create plant",
+      status: 'error',
+      message: 'Failed to create plant',
       error: error.message,
     });
   }
@@ -105,20 +148,20 @@ const getRegions = async (req, res) => {
       select: {
         region: true,
       },
-      distinct: ["region"],
+      distinct: ['region'],
     });
 
     const uniqueRegions = regions.map((r) => r.region);
 
     res.json({
-      status: "success",
+      status: 'success',
       data: uniqueRegions,
     });
   } catch (error) {
-    console.error("Error fetching regions:", error);
+    console.error('Error fetching regions:', error);
     res.status(500).json({
-      status: "error",
-      message: "Failed to fetch regions",
+      status: 'error',
+      message: 'Failed to fetch regions',
       error: error.message,
     });
   }
@@ -129,4 +172,5 @@ module.exports = {
   getPlantById,
   createPlant,
   getRegions,
+  getPlantsByRegion,
 };

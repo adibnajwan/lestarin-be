@@ -1,22 +1,26 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 const {
   getPlants,
   getPlantById,
   createPlant,
   getRegions,
-} = require("../controllers/plants.controller");
+  getPlantsByRegion,
+} = require('../controllers/plants.controller');
 
 // Get list of all regions (for filter dropdown)
-router.get("/regions", getRegions);
+router.get('/regions', getRegions);
 
-// Get all plants with optional region filter
-router.get("/", getPlants);
+// Get all plants
+router.get('/', getPlants);
+
+// Get plants by region
+router.get('/region/:region', getPlantsByRegion);
 
 // Get single plant by ID
-router.get("/:id", getPlantById);
+router.get('/:id', getPlantById);
 
 // Create new plant
-router.post("/", createPlant);
+router.post('/', createPlant);
 
 module.exports = router;
