@@ -29,8 +29,8 @@ async function main() {
         'https://jurnalsyntaxadmiration.com/index.php/jurnal/article/view/727/1096',
     },
     {
-      name: 'Bunga Bangkai',
-      scientificName: '',
+      name: 'Titan Arum',
+      scientificName: 'Amorphophallus titanum',
       region: 'Sumatra',
       description:
         'Each phase (leafy and flowering) never appears simultaneously in a single plant',
@@ -55,25 +55,25 @@ async function main() {
         'https://download.garuda.kemdikbud.go.id/article.php?article=609868',
     },
     {
-      name: 'Bunga-bunga puteh',
+      name:'Tanggulu',
       scientificName: 'Ottelia mesenterium',
       region: 'Sulawesi',
       description:
         'The leaves are numerous, long and ribbon-shaped with curled edges, giving them a distinctive and attractive appearance.',
       benefits: [],
       conservationStatus: 'Unknown',
-      imageUrl: '',
+      imageUrl: 'https://i.pinimg.com/736x/fe/5c/79/fe5c7962ff60eda9ada608411a5908c0.jpg',
       source:
         'https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/86OC5J',
     },
     {
-      name: 'Mangga liar',
+      name: 'Bambangan',
       scientificName: 'Mangifera Pajang Kostermann',
       region: 'Borneo',
       description: 'Berukuran besar',
       benefits: [],
       conservationStatus: 'Rare',
-      imageUrl: '',
+      imageUrl: 'https://alchetron.com/cdn/mangifera-pajang-6e4cdb13-45d4-4d00-828f-b3e52c15b87-resize-750.jpg',
       source:
         'https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/H0VC6E',
     },
@@ -160,7 +160,7 @@ async function main() {
       description: '',
       benefits: ['Traditional medicine'],
       conservationStatus: 'Endangered',
-      imageUrl: 'https://images.app.goo.gl/PKcmQZPZ5vvbxqyW6',
+      imageUrl: 'https://static.inaturalist.org/photos/55749500/large.jpg',
       source:
         'https://download.garuda.kemdikbud.go.id/article.php?article=609868',
     },
@@ -195,7 +195,7 @@ async function main() {
       description: '',
       benefits: [],
       conservationStatus: 'Endangered',
-      imageUrl: '',
+      imageUrl: 'https://plantamor.com/assets/files/species/arecaceae/0050010070788799730.jpg',
       source:
         'https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/8SDWOH',
     },
@@ -218,7 +218,7 @@ async function main() {
       description: '',
       benefits: [],
       conservationStatus: 'Rare',
-      imageUrl: '',
+      imageUrl: 'https://api.gbif.org/v1/image/cache/200x/occurrence/5087359924/media/06a42e53648af84d38d6dafe430f68ee',
       source:
         'https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/8SDWOH',
     },
@@ -229,7 +229,7 @@ async function main() {
       description: '',
       benefits: [],
       conservationStatus: 'Rare',
-      imageUrl: '',
+      imageUrl: 'https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-14116-5_169-1/MediaObjects/454780_0_En_169-1_Fig3_HTML.jpg',
       source:
         'https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/8SDWOH',
     },
@@ -264,7 +264,7 @@ async function main() {
       description: '',
       benefits: [],
       conservationStatus: 'Unknown',
-      imageUrl: '',
+      imageUrl: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCi6yW5DL51jCTRF__fuZAzo950hNaPE3QVxjdX14dNrLIQaijfhUHdGfq0DNbs1rYwqNujOsviLQ2Si1PGYbK9MzGOtN22ZjVdz8hTT6h04bZBTs6IQPuq_lPj7JBW2gxo5RjW15eNhs/s1600/Cirrhopetalum+sociale+2.jpg',
       source:
         'https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/SVSKYB',
     },
@@ -281,13 +281,13 @@ async function main() {
         'https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/YKBMUS',
     },
     {
-      name: 'Menteng besar',
+      name: 'Menteng',
       scientificName: 'Baccaurea dulcis',
       region: 'Sumatra',
       description: '',
       benefits: [],
       conservationStatus: 'Endangered',
-      imageUrl: '',
+      imageUrl: 'https://veliyathgarden.com/cdn/shop/files/233684282_4397385470328678_7357702554999506153_n_1445x.jpg?v=1735030090',
       source:
         'https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/PMBLFX',
     },
@@ -316,12 +316,12 @@ async function main() {
         'and cure thrush',
       ],
       conservationStatus: 'Unknown',
-      imageUrl: '',
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4LeVn1d2tscVvj4RLGm5h1EPqycIalYIXqA&s',
       source:
         'https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/SZVSNY',
     },
     {
-      name: 'Bunga Padma Raksasa',
+      name: 'Padma Raksasa',
       scientificName: 'Rafflesia arnoldii',
       region: 'Sumatra',
       description: 'The largest parasitic flower, living on a plant host',
@@ -375,11 +375,11 @@ async function main() {
         'Has a reddish-brown color with straight black fibers, a smooth texture, and is easy to shape',
       benefits: ['Furniture'],
       conservationStatus: 'Endangered',
-      imageUrl: '',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Tree_in_new_leaves_I_IMG_6222.jpg/250px-Tree_in_new_leaves_I_IMG_6222.jpg',
       source: 'https://www.scribd.com/doc/311311946/ENDEMIK-docx',
     },
     {
-      name: 'Bunga Bangkai Raksasa',
+      name: 'Bangkai Raksasa',
       scientificName: 'Amorphophallus gigas',
       region: 'Sumatra',
       description:
