@@ -37,7 +37,7 @@ async function main() {
       benefits: [],
       conservationStatus: 'Rare',
       imageUrl:
-        'https://cdn.rri.co.id/berita/Bandar_Lampung/o/1733379808270-foto_4_-_5_Desember_2024/dbo8142316o5yz1.jpeg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Titan-arum1web.jpg/330px-Titan-arum1web.jpg',
       source:
         'https://d1wqtxts1xzle7.cloudfront.net/57499788/STRATEGI_DAN_RENCANA_AKSI_KONSERVASI_BUNGA_BANGKAI_Amorphophallus_titanum_2015_-_2025-libre.pdf',
     },
