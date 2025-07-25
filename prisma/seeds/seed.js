@@ -135,7 +135,8 @@ async function main() {
       description: 'Similar to "Kumis Kucing" plant',
       benefits: [],
       conservationStatus: 'Unknown',
-      imageUrl: '',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cats_Whiskers_%282074039768%29.jpg/1200px-Cats_Whiskers_%282074039768%29.jpg',
       source:
         'https://download.garuda.kemdikbud.go.id/article.php?article=609868',
     },
@@ -147,7 +148,8 @@ async function main() {
         'The tree is small, about 4 meters tall with a diameter of only about 5 cm.',
       benefits: [],
       conservationStatus: 'Endangered',
-      imageUrl: '',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/7/78/Guioa_acutifolia_flowers_Kewarra_4470.jpg',
       source:
         'https://download.garuda.kemdikbud.go.id/article.php?article=609868',
     },
@@ -158,7 +160,7 @@ async function main() {
       description: '',
       benefits: ['Traditional medicine'],
       conservationStatus: 'Endangered',
-      imageUrl: '',
+      imageUrl: 'https://images.app.goo.gl/PKcmQZPZ5vvbxqyW6',
       source:
         'https://download.garuda.kemdikbud.go.id/article.php?article=609868',
     },
@@ -169,7 +171,8 @@ async function main() {
       description: '',
       benefits: [],
       conservationStatus: 'Endangered',
-      imageUrl: '',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Minnehaha_Walk_MRD_08.jpg/500px-Minnehaha_Walk_MRD_08.jpg',
       source:
         'https://download.garuda.kemdikbud.go.id/article.php?article=609868',
     },
@@ -180,7 +183,8 @@ async function main() {
       description: '',
       benefits: [],
       conservationStatus: 'Endangered',
-      imageUrl: '',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/e/eb/Nepenthes_rajah_ASR_062007_tambu_borneo.jpg',
       source:
         'https://download.garuda.kemdikbud.go.id/article.php?article=609868',
     },
@@ -202,7 +206,8 @@ async function main() {
       description: '',
       benefits: [],
       conservationStatus: 'Endangered',
-      imageUrl: '',
+      imageUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLXrFs2erjTG-K8BoF8BhzzFupNune0thMr32nRrducysUvey0tJI4Ne1OYLw3-ErckE4&usqp=CAU',
       source:
         'https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/8SDWOH',
     },
@@ -247,7 +252,8 @@ async function main() {
       description: '',
       benefits: [],
       conservationStatus: 'Unknown',
-      imageUrl: '',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/3/36/Paphiopedilum_tonsum_Orchi_DOG_037.jpg',
       source:
         'https://data.brin.go.id/dataset.xhtml?persistentId=hdl:20.500.12690/RIN/SVSKYB',
     },
@@ -391,7 +397,7 @@ async function main() {
 
   // Clear existing data
   await prisma.plant.deleteMany();
-  
+
   // Reset ID sequence
   await prisma.$queryRaw`ALTER SEQUENCE "Plant_id_seq" RESTART WITH 1`;
 
