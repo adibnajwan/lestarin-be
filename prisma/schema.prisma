@@ -47,6 +47,7 @@ model Plant {
   benefits         String[] 
   conservationStatus String  
   imageUrl         String? 
+  source           String?  @db.Text  
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
